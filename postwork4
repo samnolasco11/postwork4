@@ -1,0 +1,176 @@
+(base) C:\Users\52558> mycli --version
+Version: 1.20.1
+
+(base) C:\Users\52558> mycli -u root -h ec2-54-213-51-169.us-west-2.compute.amazonaws.com
+Password:
+Password:
+(1045, "Access denied for user 'root'@'201.149.59.226' (using password: YES)")
+
+(base) C:\Users\52558> mycli -u root -h ec2-54-213-51-169.us-west-2.compute.amazonaws.com
+Password:
+mysql 10.1.44-MariaDB-0ubuntu0.18.04.1
+mycli 1.20.1
+Chat: https://gitter.im/dbcli/mycli
+Mail: https://groups.google.com/forum/#!forum/mycli-users
+Home: http://mycli.net
+Thanks to the contributor - Magnus udd
+(none)> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
++--------------------+
+3 rows in set
+Time: 0.186s
+(none)> create database Sam;
+Query OK, 1 row affected
+Time: 0.182s
+(none)> show databases;
++--------------------+
+| Database           |
++--------------------+
+| ANDREA             |
+| Adrii_Merlin       |
+| FranciscoGarcia_DB |
+| Jazmin             |
+| Lilia              |
+| ROSS               |
+| Rosalia            |
+| Sam                |
+| Sergio             |
+| Zamby              |
+| information_schema |
+| janet              |
+| maria              |
+| mysql              |
+| performance_schema |
++--------------------+
+15 rows in set
+Time: 0.238s
+(none)> use Sam;
+You are now connected to database "Sam" as user "root"
+Time: 0.185s
+Sam> ls
+(1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ls' at line 1")
+Sam>
+
+
+
+
+
+
+
+Sam>  create table users(
+(1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1")
+Sam>  create table users(
+(1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1")
+Sam>  create table users(
+      ID INT PRIMARY KEY,
+      GENERO VARCHAR(2),
+      EDAD INT,
+      OCUPACION INT,
+      CP VARCHAR(10));
+Query OK, 0 rows affected
+Time: 0.252s
+Sam> SHOW TABLES;
++---------------+
+| Tables_in_Sam |
++---------------+
+| users         |
++---------------+
+1 row in set
+Time: 0.202s
+Sam> CREATE TABLE MOVIES(
+     ID INT PRIMARY KEY,
+     NOMBRE VARCHAR (20);
+(1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 3")
+Sam> CREATE TABLE MOVIES(
+     ID INT PRIMARY KEY,
+     NOMBRE VARCHAR (20));
+Query OK, 0 rows affected
+Time: 0.181s
+Sam> SHOW TABLES;
++---------------+
+| Tables_in_Sam |
++---------------+
+| MOVIES        |
+| users         |
++---------------+
+2 rows in set
+Time: 0.144s
+Sam> DROP TABLE `MOVIES`;
+You're about to run a destructive command.
+Do you want to proceed? (y/n): Y
+Your call!
+Query OK, 0 rows affected
+Time: 0.142s
+Sam> CREATE TABLE MOVIES(
+     ID INT PRIMARY KEY,
+
+     NOMBRE VARCHAR (20),
+     GENERO VARCHAR (50));
+Query OK, 0 rows affected
+Time: 0.179s
+Sam> CREATE TABLE RATING(
+
+
+
+
+
+
+Sam> CREATE TABLE MOVIES(
+     ID INT PRIMARY KEY,
+
+     NOMBRE VARCHAR (20),
+     GENERO VARCHAR (50));
+(1050, "Table 'MOVIES' already exists")
+Sam> create table rating(
+     userid int primary key,
+     movieid int,
+     rating int,
+     timest timestamp);
+Query OK, 0 rows affected
+Time: 0.182s
+Sam> show tables;
++---------------+
+| Tables_in_Sam |
++---------------+
+| MOVIES        |
+| rating        |
+| users         |
++---------------+
+3 rows in set
+Time: 0.128s
+Sam> load data local infile /c/Users/52558/Documents/CursoBD
+     into table users;
+(1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '/c/Users/52558/Documents/CursoBD\ninto table users' at line 1")
+Sam>
+Sam>
+Goodbye!
+
+(base) C:\Users\52558> mycli -u root -h ec2-54-213-51-169.us-west-2.compute.amazonaws.com --local-infile true
+Password:
+mysql 10.1.44-MariaDB-0ubuntu0.18.04.1
+mycli 1.20.1
+Chat: https://gitter.im/dbcli/mycli
+Mail: https://groups.google.com/forum/#!forum/mycli-users
+Home: http://mycli.net
+Thanks to the contributor - Phil Cohen
+(none)>
+
+(none)> load data local infile /c/Users/52558/Documents/CursoBD
+        into table users;
+(1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '/c/Users/52558/Documents/CursoBD\ninto table users' at line 1")
+(none)> load data local infile "c:/Users/52558/Documents/CursoBD/users.csv"
+        into table users;
+(1046, 'No database selected')
+(none)> use Sam;
+You are now connected to database "Sam" as user "root"
+Time: 0.114s
+Sam> load data local infile "c:/Users/52558/Documents/CursoBD/users.csv"
+     into table users;
+Query OK, 6040 rows affected
+Time: 0.732s
+Sam>
